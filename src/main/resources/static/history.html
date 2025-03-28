@@ -1,0 +1,798 @@
+<!doctype html>
+
+<meta charset="utf-8">
+<title>北京拥堵历史排行</title>
+<link href="css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="js/echarts.min.js" charset="utf-8"></script>
+
+
+<body>
+<div class="bnt">
+  <div class="topbnt_left fl">
+   <ul><li><a href="./traffic.html">交通分析</a></li>
+      <li class="active"><a href="./history.html">历史排行</a></li>
+      <li><a href="./predict.html">拥堵预测</a></li>
+   </ul>
+  </div>
+  <h1 class="tith1 fl">历史排行</h1>
+  <div class=" fr topbnt_right">
+   <ul>
+      <li><a href="./traffic.html">交通分析</a></li>
+      <li><a href="./predict.html">拥堵预测</a></li>
+      <li><a href="./index.html">退出登录</a></li>
+   </ul>
+  </div>
+</div>
+<!-- bnt end -->
+<div class="left1 pleft1">
+    <div class="lefttime"><h2 class="tith2">统计时间</h2>
+     <div class="lefttime_text">
+        <ul>
+          <li class="bg active">今日</li>
+          <li></li>
+          <li class="bg">本周</li>
+          <li></li>
+          <li class="bg">本月</li>
+          <li></li>
+          <li class="bg">本季</li>
+          <li></li>
+          <li class="bg">本年</li>
+        </ul>
+     </div>
+    </div>
+    <div class="plefttoday"><h2 class="tith2">今日交通指数统计</h2>
+    <div class="lefttoday_tit" style=" height:8%"><p class="fl">地区：北京</p><p class="fr">2025-03-23</p></div>
+    <div class="lefttoday_number">
+      <div class="widget-inline-box text-center fl">
+        <p>平均指数</p>
+        <h3 class="ceeb1fd">7.8</h3>
+        <h4 class="text-muted">环比<img src="img/iconup.png" height="16" />2%</h4>
+      </div>
+      <div class="widget-inline-box text-center fl">
+         <p>最高指数</p>
+        <h3 class="c24c9ff">9.2</h3>
+        <h4 class="text-muted">环比<img src="img/iconup.png" height="16" />5%</h4>
+      </div>
+      <div class="widget-inline-box text-center fl">
+         <p>最低指数</p>
+        <h3 class="cffff00">4.6</h3>
+        <h4 class="text-muted">环比<img src="img/icondown.png" height="16" />3%</h4>
+      </div>
+      <div class="widget-inline-box text-center fl">
+         <p>拥堵等级</p>
+        <h3 class="c11e2dd">严重</h3>
+        <h4 class="text-muted">环比<img src="img/iconup.png" height="16" />1级</h4>
+      </div>
+    </div>
+    <!-- lefttoday_number end -->
+    <!--  lefttoday_bar end-->
+    </div>
+    <div class="lpeftmidbot">
+      <h2 class="tith2">拥堵时段分布</h2>
+      <div id="lpeftbot" class="lpeftmidbotcont"></div>
+  </div>
+    <div class="lpeftbot">
+      <h2 class="tith2">平均拥堵时长分析</h2>
+      <div id="lpeftmidbot" class="lpeftbotcont" ></div>
+  </div>
+</div>
+<!--  left1 end -->
+<div class="left2">
+  <div class="pleftbox2top">
+    <h2 class="tith2">一周拥堵情况分析</h2>
+    <div id="pleftbox2top" class="pleftbox2topcont"></div>
+  </div>
+  <div class="pleftbox2midd"><h2 class="tith2">区域拥堵排名</h2>
+  <div class="pvr fl  lpeftb2otcont1 hdtop" style=" height:82%;" >
+    <ul>
+      <li class="hot1">1</li>
+      <li class="hot2">2</li>
+      <li class="hot3">3</li>
+      <li class="hot4">4</li>
+      <li class="hot5">5</li>
+    </ul>
+    <div id="pleftbox2bott_cont"class="pleftbox2middcont" style=" height:100%;" ></div>
+  </div>
+  </div>
+  <div class="lpeft2bot" >
+    <h2 class="tith2 " >主要道路拥堵排行TOP5</h2>
+<div id="prbottom_box1"class="lpeftb2otcont" ></div>
+
+    </div>
+</div>
+</div>
+<div class="mrbox prbox">
+      <div class="hdmrbox_top">
+          <div class="mrbox_top_midd">
+                <div class="hdmrboxtm-mbox"><h2 class="tith2 pt1">当月拥堵情况</h2>
+                <div id="map_1" style="width:100%; height:92%;"></div>
+              </div>
+
+                <div class="mrbox_bottom_bott">
+                    <div class="rbottom_box1 hdwid"><h2 class="tith2">拥堵等级分布</h2>
+                    <div id="prbottom_box2" class="prbottom_box1cont"></div></div>
+                    <div class="rbottom_box2 hdwid"><h2 class="tith2">全市平均速度变化</h2>
+                    <div id="pleftbox2midd" class="prbottom_box1cont" ></div></div>
+              </div>
+
+          </div>
+        <div class="mrbox_top_right">
+          <div class="hdrightboxtop"><h2 class="tith2">今日拥堵排行</h2>
+            <div class="lefttoday_tit" style="height:4%"><p class="fl">时间：2025-03-23</p><p class="fr">更新时间：10:30</p></div>
+            <div class="left2_table hdleft2_table">
+               <ul>
+                    <li>
+                    <p class="fl"><b>1. 西直门桥</b><br>
+                      指数：9.2 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：8km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>2. 五环主路北段</b><br>
+                      指数：8.9 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：12km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>3. 东直门桥</b><br>
+                      指数：8.6 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：15km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>4. 三环主路南段</b><br>
+                      指数：8.3 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：16km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>5. 广渠门桥</b><br>
+                      指数：8.0 | 状态：中度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：20km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>6. 北四环西路</b><br>
+                      指数：7.8 | 状态：中度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：22km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>7. 东四环北路</b><br>
+                      指数：7.5 | 状态：中度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：25km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>8. 长安街</b><br>
+                      指数：7.2 | 状态：中度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：27km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>9. 阜石路</b><br>
+                      指数：6.8 | 状态：轻度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：30km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>10. 京藏高速</b><br>
+                      指数：6.5 | 状态：轻度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：35km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>11. 机场高速</b><br>
+                      指数：6.2 | 状态：轻度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：40km/h</p>
+                    </li>
+               </ul>
+            </div>
+            
+            <h2 class="tith2">昨日拥堵排行</h2>
+            <div class="lefttoday_tit" style="height:4%"><p class="fl">时间：2025-03-22</p><p class="fr">统计时段：全天</p></div>
+            <div class="left2_table hdleft2_table">
+               <ul>
+                    <li>
+                    <p class="fl"><b>1. 西直门桥</b><br>
+                      指数：9.0 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：9km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>2. 东直门桥</b><br>
+                      指数：8.8 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：11km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>3. 三环主路南段</b><br>
+                      指数：8.5 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：13km/h</p>
+                    </li>
+                    <li class="bg">
+                    <p class="fl"><b>4. 五环主路北段</b><br>
+                      指数：8.2 | 状态：严重拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：15km/h</p>
+                    </li>
+                    <li>
+                    <p class="fl"><b>5. 广渠门桥</b><br>
+                      指数：7.9 | 状态：中度拥堵<br>
+                    </p>
+                    <p class="fr pt17">平均车速：21km/h</p>
+                    </li>
+               </ul>
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+// 基于准备好的dom，初始化echarts实例
+var myChart1 = echarts.init(document.getElementById('lpeftbot'));
+var myChart2 = echarts.init(document.getElementById('lpeftmidbot'));
+var myChart3 = echarts.init(document.getElementById('pleftbox2top'));
+var myChart4 = echarts.init(document.getElementById('pleftbox2bott_cont'));
+var myChart5 = echarts.init(document.getElementById('prbottom_box1'));
+var myChart6 = echarts.init(document.getElementById('map_1'));
+var myChart7 = echarts.init(document.getElementById('prbottom_box2'));
+var myChart8 = echarts.init(document.getElementById('pleftbox2midd'));
+
+// 拥堵时段分布
+option1 = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['6:00', '8:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
+            axisTick: {
+                alignWithLabel: true
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '拥堵指数',
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee'
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0.1)'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            name: '拥堵指数',
+            type: 'bar',
+            barWidth: '60%',
+            data: [4.5, 8.9, 7.2, 6.5, 5.8, 6.2, 9.2, 7.8, 5.3],
+            itemStyle: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {offset: 0, color: '#83bff6'},
+                    {offset: 0.5, color: '#188df0'},
+                    {offset: 1, color: '#188df0'}
+                ])
+            }
+        }
+    ]
+};
+
+// 平均拥堵时长分析
+option2 = {
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        top: '5%',
+        left: 'center',
+        textStyle: {
+            color: '#eee'
+        }
+    },
+    series: [
+        {
+            name: '拥堵时长',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '20',
+                    fontWeight: 'bold',
+                    color: '#fff'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 48, name: '轻度拥堵 (<30分钟)'},
+                {value: 72, name: '中度拥堵 (30-60分钟)'},
+                {value: 108, name: '重度拥堵 (60-120分钟)'},
+                {value: 36, name: '特重拥堵 (>120分钟)'}
+            ]
+        }
+    ],
+    color: ['#91cc75', '#fac858', '#ee6666', '#fc8452']
+};
+
+// 一周拥堵情况分析
+option3 = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    legend: {
+        data: ['平均拥堵指数', '高峰期拥堵指数', '拥堵时长(分钟)'],
+        textStyle: {
+            color: '#eee'
+        }
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            axisPointer: {
+                type: 'shadow'
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '拥堵指数',
+            min: 0,
+            max: 10,
+            interval: 2,
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee',
+                formatter: '{value}'
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0.1)'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '拥堵时长',
+            min: 0,
+            max: 200,
+            interval: 50,
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee',
+                formatter: '{value} 分钟'
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0.1)'
+                }
+            }
+        }
+    ],
+    series: [
+        {
+            name: '平均拥堵指数',
+            type: 'bar',
+            data: [7.2, 7.5, 7.1, 7.8, 8.4, 6.2, 5.1]
+        },
+        {
+            name: '高峰期拥堵指数',
+            type: 'bar',
+            data: [8.9, 9.0, 8.8, 9.2, 9.5, 7.8, 6.5]
+        },
+        {
+            name: '拥堵时长(分钟)',
+            type: 'line',
+            yAxisIndex: 1,
+            data: [120, 125, 115, 130, 145, 90, 75],
+            lineStyle: {
+                width: 3,
+                color: '#fc8452'
+            },
+            itemStyle: {
+                color: '#fc8452'
+            }
+        }
+    ],
+    color: ['#5470c6', '#91cc75', '#fc8452']
+};
+
+// 区域拥堵排名
+option4 = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01],
+        axisLine: {
+            lineStyle: {
+                color: '#eee'
+            }
+        },
+        axisLabel: {
+            color: '#eee'
+        },
+        splitLine: {
+            lineStyle: {
+                color: 'rgba(255,255,255,0.1)'
+            }
+        }
+    },
+    xAxis: {
+        type: 'category',
+        data: ['朝阳区', '海淀区', '西城区', '东城区', '丰台区'],
+        axisLine: {
+            lineStyle: {
+                color: '#eee'
+            }
+        },
+        axisLabel: {
+            color: '#eee'
+        }
+    },
+    series: [
+        {
+            name: '拥堵指数',
+            type: 'bar',
+            data: [8.7, 8.4, 8.2, 7.9, 7.5],
+            itemStyle: {
+                color: function(params) {
+                    var colorList = ['#c23531','#2f4554','#61a0a8','#d48265','#91c7ae'];
+                    return colorList[params.dataIndex]
+                }
+            }
+        }
+    ]
+};
+
+// 主要道路拥堵排行TOP5
+option5 = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'none'
+        },
+        formatter: function (params) {
+            return params[0].name + ': ' + params[0].value;
+        }
+    },
+    xAxis: {
+        data: ['西直门桥', '东直门桥', '五环主路', '三环主路', '广渠门桥'],
+        axisTick: {show: false},
+        axisLine: {show: false},
+        axisLabel: {
+            color: '#eee',
+            interval: 0
+        }
+    },
+    yAxis: {
+        splitLine: {show: false},
+        axisTick: {show: false},
+        axisLine: {show: false},
+        axisLabel: {show: false}
+    },
+    color: ['#83bff6'],
+    series: [{
+        name: '拥堵指数',
+        type: 'pictorialBar',
+        barCategoryGap: '-40%',
+        symbol: 'path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z',
+        itemStyle: {
+            normal: {
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: '#ee6666'
+                    }, {
+                        offset: 1,
+                        color: '#f7f494'
+                    }],
+                    global: false
+                }
+            },
+            emphasis: {
+                opacity: 1
+            }
+        },
+        data: [9.2, 8.6, 8.3, 8.0, 7.6],
+        z: 10
+    }]
+};
+
+// 当月拥堵情况
+option6 = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['平均拥堵指数', '拥堵时长'],
+        textStyle: {
+            color: '#eee'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: ['1日', '5日', '10日', '15日', '20日', '25日', '30日'],
+        axisLine: {
+            lineStyle: {
+                color: '#eee'
+            }
+        },
+        axisLabel: {
+            color: '#eee'
+        }
+    },
+    yAxis: [
+        {
+            type: 'value',
+            name: '拥堵指数',
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee'
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,0.1)'
+                }
+            }
+        },
+        {
+            type: 'value',
+            name: '时长(分钟)',
+            position: 'right',
+            axisLine: {
+                lineStyle: {
+                    color: '#eee'
+                }
+            },
+            axisLabel: {
+                color: '#eee'
+            },
+            splitLine: {
+                show: false
+            }
+        }
+    ],
+    series: [
+        {
+            name: '平均拥堵指数',
+            type: 'line',
+            smooth: true,
+            data: [7.2, 7.5, 7.8, 7.3, 7.9, 8.2, 7.8],
+            itemStyle: {
+                color: '#5470c6'
+            },
+            lineStyle: {
+                width: 3
+            }
+        },
+        {
+            name: '拥堵时长',
+            type: 'line',
+            yAxisIndex: 1,
+            smooth: true,
+            data: [110, 120, 135, 115, 140, 145, 130],
+            itemStyle: {
+                color: '#91cc75'
+            },
+            lineStyle: {
+                width: 3
+            }
+        }
+    ]
+};
+
+// 拥堵等级分布
+option7 = {
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        textStyle: {
+            color: '#eee'
+        }
+    },
+    series: [
+        {
+            name: '拥堵等级',
+            type: 'pie',
+            radius: '50%',
+            data: [
+                {value: 15, name: '畅通'},
+                {value: 25, name: '基本畅通'},
+                {value: 30, name: '轻度拥堵'},
+                {value: 20, name: '中度拥堵'},
+                {value: 10, name: '严重拥堵'}
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ],
+    color: ['#91cc75', '#5470c6', '#fac858', '#ee6666', '#73c0de']
+};
+
+// 全市平均速度变化
+option8 = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    xAxis: {
+        type: 'category',
+        data: ['6:00', '9:00', '12:00', '15:00', '18:00', '21:00', '0:00'],
+        axisLine: {
+            lineStyle: {
+                color: '#eee'
+            }
+        },
+        axisLabel: {
+            color: '#eee'
+        }
+    },
+    yAxis: {
+        type: 'value',
+        name: '平均车速(km/h)',
+        axisLine: {
+            lineStyle: {
+                color: '#eee'
+            }
+        },
+        axisLabel: {
+            color: '#eee'
+        },
+        splitLine: {
+            lineStyle: {
+                color: 'rgba(255,255,255,0.1)'
+            }
+        }
+    },
+    series: [{
+        data: [45, 25, 32, 35, 22, 30, 50],
+        type: 'line',
+        smooth: true,
+        lineStyle: {
+            width: 3,
+            color: '#5470c6'
+        },
+        areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                    offset: 0,
+                    color: 'rgba(84, 112, 198, 0.5)'
+                },
+                {
+                    offset: 1,
+                    color: 'rgba(84, 112, 198, 0.1)'
+                }
+            ])
+        },
+        itemStyle: {
+            color: '#5470c6'
+        }
+    }]
+};
+
+// 使用刚指定的配置项和数据显示图表。
+myChart1.setOption(option1);
+myChart2.setOption(option2);
+myChart3.setOption(option3);
+myChart4.setOption(option4);
+myChart5.setOption(option5);
+myChart6.setOption(option6);
+myChart7.setOption(option7);
+myChart8.setOption(option8);
+
+// 自适应大小
+window.addEventListener("resize", function() {
+    myChart1.resize();
+    myChart2.resize();
+    myChart3.resize();
+    myChart4.resize();
+    myChart5.resize();
+    myChart6.resize();
+    myChart7.resize();
+    myChart8.resize();
+});
+</script>
+
+
+</body>
+</html>

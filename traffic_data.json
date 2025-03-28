@@ -1,0 +1,101 @@
+{
+  "areaCongestionRanking": {
+    "updateTime": "2025-03-22 10:30:45",
+    "areas": [
+      {"name": "朝阳区", "value": 8.7, "congestionLevel": "严重拥堵", "speed": 15.5},
+      {"name": "海淀区", "value": 8.2, "congestionLevel": "严重拥堵", "speed": 16.8},
+      {"name": "西城区", "value": 7.4, "congestionLevel": "中度拥堵", "speed": 18.6},
+      {"name": "东城区", "value": 7.1, "congestionLevel": "中度拥堵", "speed": 19.2},
+      {"name": "丰台区", "value": 6.5, "congestionLevel": "中度拥堵", "speed": 21.5},
+      {"name": "石景山区", "value": 5.8, "congestionLevel": "轻度拥堵", "speed": 24.7},
+      {"name": "通州区", "value": 5.2, "congestionLevel": "轻度拥堵", "speed": 26.4},
+      {"name": "昌平区", "value": 4.8, "congestionLevel": "轻度拥堵", "speed": 28.3}
+    ]
+  },
+  "weatherInfo": {
+    "date": "2025-03-22",
+    "area": "北京市",
+    "temperature": 21,
+    "weather": "晴朗",
+    "wind": "东北风 2级",
+    "tempRange": {
+      "min": -20,
+      "max": 40,
+      "sections": [
+        {"max": 0.25, "color": "#00a0e9", "name": "冷"},
+        {"max": 0.5, "color": "#5bffad", "name": "舒适"},
+        {"max": 0.75, "color": "#e9ff5b", "name": "温暖"},
+        {"max": 1, "color": "#ff5b5b", "name": "热"}
+      ]
+    }
+  },
+  "allRoadsCongestion": {
+    "updateTime": "10:30:45",
+    "roads": [
+      {"name": "五环路", "value": 9.2, "congestionLevel": "严重拥堵", "speed": 12.3, "delay": 35},
+      {"name": "三环路", "value": 8.7, "congestionLevel": "严重拥堵", "speed": 15.8, "delay": 28},
+      {"name": "长安街", "value": 8.5, "congestionLevel": "严重拥堵", "speed": 16.2, "delay": 26},
+      {"name": "建国门内大街", "value": 7.8, "congestionLevel": "中度拥堵", "speed": 18.4, "delay": 22},
+      {"name": "北三环", "value": 7.6, "congestionLevel": "中度拥堵", "speed": 19.1, "delay": 20},
+      {"name": "二环路", "value": 6.9, "congestionLevel": "中度拥堵", "speed": 21.5, "delay": 18},
+      {"name": "四环路", "value": 6.2, "congestionLevel": "中度拥堵", "speed": 23.8, "delay": 15},
+      {"name": "北四环", "value": 5.5, "congestionLevel": "轻度拥堵", "speed": 26.7, "delay": 12}
+    ]
+  },
+  "normalRoadsCongestion": {
+    "date": "2025-03-22",
+    "timePoints": ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"],
+    "values": [4.2, 7.8, 9.1, 8.5, 7.2, 6.5, 5.3, 4.8]
+  },
+  "highwayCongestion": {
+    "timePoints": ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"],
+    "inboundData": [
+      {"value": 3.2, "speed": 75.3},
+      {"value": 7.2, "speed": 48.6},
+      {"value": 8.6, "speed": 34.2},
+      {"value": 7.4, "speed": 46.8},
+      {"value": 6.5, "speed": 51.2},
+      {"value": 5.8, "speed": 55.7},
+      {"value": 4.9, "speed": 62.4},
+      {"value": 4.3, "speed": 68.9}
+    ],
+    "outboundData": [
+      {"value": 2.5, "speed": 82.5},
+      {"value": 3.8, "speed": 71.4},
+      {"value": 4.5, "speed": 65.2},
+      {"value": 4.7, "speed": 63.6},
+      {"value": 5.2, "speed": 60.1},
+      {"value": 6.7, "speed": 50.3},
+      {"value": 8.1, "speed": 36.7},
+      {"value": 8.5, "speed": 33.8}
+    ]
+  },
+  "trafficTrend": {
+    "timePoints": ["00:00", "03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00", "24:00"],
+    "values": [2.1, 1.8, 2.2, 8.9, 5.2, 4.8, 9.1, 6.2, 3.5],
+    "colorRanges": [
+      {"max": 3, "color": "#20c5ff"},
+      {"max": 5, "color": "#5bffad"},
+      {"max": 7, "color": "#e9ff5b"},
+      {"max": 9, "color": "#ff9c5b"},
+      {"max": 10, "color": "#ff5b5b"}
+    ]
+  },
+  "frequentCongestionRoads": {
+    "roads": [
+      {"name": "建国门桥区域", "value": 7.2, "congestionLevel": "严重拥堵", "speed": 13.6, "delay": 38},
+      {"name": "西直门桥区域", "value": 6.5, "congestionLevel": "中度拥堵", "speed": 16.8, "delay": 32},
+      {"name": "四惠桥区域", "value": 6.2, "congestionLevel": "中度拥堵", "speed": 17.5, "delay": 30},
+      {"name": "光华桥区域", "value": 5.8, "congestionLevel": "中度拥堵", "speed": 18.7, "delay": 28},
+      {"name": "三元桥区域", "value": 5.3, "congestionLevel": "轻度拥堵", "speed": 21.4, "delay": 25},
+      {"name": "白石桥区域", "value": 4.7, "congestionLevel": "轻度拥堵", "speed": 24.2, "delay": 22}
+    ]
+  },
+  "realTimeMap": {
+    "updateTime": "2025-03-22 10:30:45",
+    "mapData": {
+      "centerCoordinates": [116.404, 39.915],
+      "zoom": 12
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "statisticsTime": {
+    "categories": ["今日", "本周", "本月", "本季", "本年"]
+  },
+  "todayTrafficIndex": {
+    "date": "2025-03-23",
+    "area": "北京",
+    "averageIndex": {
+      "value": 7.8,
+      "compareRate": 2,
+      "trend": "up"
+    },
+    "maxIndex": {
+      "value": 9.2,
+      "compareRate": 5,
+      "trend": "up"
+    },
+    "minIndex": {
+      "value": 4.6,
+      "compareRate": 3,
+      "trend": "down"
+    },
+    "congestionLevel": {
+      "value": "严重",
+      "compareRate": 1,
+      "trend": "up"
+    }
+  },
+  "congestionTimeDistribution": {
+    "xAxis": ["6:00", "8:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"],
+    "data": [4.5, 8.9, 7.2, 6.5, 5.8, 6.2, 9.2, 7.8, 5.3]
+  },
+  "averageCongestionDurationAnalysis": {
+    "data": [
+      {"value": 48, "name": "轻度拥堵 (<30分钟)"},
+      {"value": 72, "name": "中度拥堵 (30-60分钟)"},
+      {"value": 108, "name": "重度拥堵 (60-120分钟)"},
+      {"value": 36, "name": "特重拥堵 (>120分钟)"}
+    ]
+  },
+  "weekCongestionAnalysis": {
+    "xAxis": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+    "averageIndex": [7.2, 7.5, 7.1, 7.8, 8.4, 6.2, 5.1],
+    "peakIndex": [8.9, 9.0, 8.8, 9.2, 9.5, 7.8, 6.5],
+    "duration": [120, 125, 115, 130, 145, 90, 75]
+  },
+  "areaCongestionRanking": {
+    "areas": ["朝阳区", "海淀区", "西城区", "东城区", "丰台区"],
+    "values": [8.7, 8.4, 8.2, 7.9, 7.5]
+  },
+  "topRoadsCongestion": {
+    "roads": ["西直门桥", "东直门桥", "五环主路", "三环主路", "广渠门桥"],
+    "values": [9.2, 8.6, 8.3, 8.0, 7.6]
+  },
+  "monthlyCongestion": {
+    "xAxis": ["1日", "5日", "10日", "15日", "20日", "25日", "30日"],
+    "averageIndex": [7.2, 7.5, 7.8, 7.3, 7.9, 8.2, 7.8],
+    "duration": [110, 120, 135, 115, 140, 145, 130]
+  },
+  "congestionLevelDistribution": {
+    "data": [
+      {"value": 15, "name": "畅通"},
+      {"value": 25, "name": "基本畅通"},
+      {"value": 30, "name": "轻度拥堵"},
+      {"value": 20, "name": "中度拥堵"},
+      {"value": 10, "name": "严重拥堵"}
+    ]
+  },
+  "cityAverageSpeedChange": {
+    "timePoints": ["6:00", "9:00", "12:00", "15:00", "18:00", "21:00", "0:00"],
+    "speeds": [45, 25, 32, 35, 22, 30, 50]
+  },
+  "todayCongestionRanking": {
+    "date": "2025-03-23",
+    "updateTime": "10:30",
+    "roads": [
+      {
+        "rank": 1,
+        "name": "西直门桥",
+        "index": 9.2,
+        "status": "严重拥堵",
+        "speed": 8
+      },
+      {
+        "rank": 2,
+        "name": "五环主路北段",
+        "index": 8.9,
+        "status": "严重拥堵",
+        "speed": 12
+      },
+      {
+        "rank": 3,
+        "name": "东直门桥",
+        "index": 8.6,
+        "status": "严重拥堵",
+        "speed": 15
+      },
+      {
+        "rank": 4,
+        "name": "三环主路南段",
+        "index": 8.3,
+        "status": "严重拥堵",
+        "speed": 16
+      },
+      {
+        "rank": 5,
+        "name": "广渠门桥",
+        "index": 8.0,
+        "status": "中度拥堵",
+        "speed": 20
+      },
+      {
+        "rank": 6,
+        "name": "北四环西路",
+        "index": 7.8,
+        "status": "中度拥堵",
+        "speed": 22
+      },
+      {
+        "rank": 7,
+        "name": "东四环北路",
+        "index": 7.5,
+        "status": "中度拥堵",
+        "speed": 25
+      },
+      {
+        "rank": 8,
+        "name": "长安街",
+        "index": 7.2,
+        "status": "中度拥堵",
+        "speed": 27
+      },
+      {
+        "rank": 9,
+        "name": "阜石路",
+        "index": 6.8,
+        "status": "轻度拥堵",
+        "speed": 30
+      },
+      {
+        "rank": 10,
+        "name": "京藏高速",
+        "index": 6.5,
+        "status": "轻度拥堵",
+        "speed": 35
+      },
+      {
+        "rank": 11,
+        "name": "机场高速",
+        "index": 6.2,
+        "status": "轻度拥堵",
+        "speed": 40
+      }
+    ]
+  },
+  "yesterdayCongestionRanking": {
+    "date": "2025-03-22",
+    "statisticsPeriod": "全天",
+    "roads": [
+      {
+        "rank": 1,
+        "name": "西直门桥",
+        "index": 9.0,
+        "status": "严重拥堵",
+        "speed": 9
+      },
+      {
+        "rank": 2,
+        "name": "东直门桥",
+        "index": 8.8,
+        "status": "严重拥堵",
+        "speed": 11
+      },
+      {
+        "rank": 3,
+        "name": "三环主路南段",
+        "index": 8.5,
+        "status": "严重拥堵",
+        "speed": 13
+      },
+      {
+        "rank": 4,
+        "name": "五环主路北段",
+        "index": 8.2,
+        "status": "严重拥堵",
+        "speed": 15
+      },
+      {
+        "rank": 5,
+        "name": "广渠门桥",
+        "index": 7.9,
+        "status": "中度拥堵",
+        "speed": 21
+      }
+    ]
+  }
+}
