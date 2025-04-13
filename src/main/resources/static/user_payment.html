@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付中心 - 智慧停车场</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义CSS -->
+    <link href="css/user_styles.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="user_index.html">
+                <i class="fas fa-parking me-2"></i>智慧停车场
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#services">服务介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#pricing">收费标准</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+                
+                <!-- 用户信息 - 假设用户已登录 -->
+                <div class="d-flex align-items-center" id="userInfo">
+                    <div class="dropdown">
+                        <a class="text-white dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span id="userDisplayName">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="user_profile.html"><i class="fas fa-id-card me-2"></i>个人中心</a></li>
+                            <li><a class="dropdown-item" href="user_my_vehicle.html"><i class="fas fa-car me-2"></i>我的车辆</a></li>
+                            <li><a class="dropdown-item" href="user_parking_history.html"><i class="fas fa-history me-2"></i>停车记录</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 支付内容 -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- 步骤指示器 -->
+                <div class="payment-steps mb-4">
+                    <div class="step active" id="stepInfo">
+                        <div class="step-number">1</div>
+                        <div class="step-title">确认信息</div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step" id="stepPay">
+                        <div class="step-number">2</div>
+                        <div class="step-title">支付费用</div>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step" id="stepComplete">
+                        <div class="step-number">3</div>
+                        <div class="step-title">完成支付</div>
+                    </div>
+                </div>
+                
+                <!-- 停车信息卡片 -->
+                <div class="card shadow-sm mb-4" id="parkingInfoCard">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2"></i>停车信息
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="ps-0" scope="row">车牌号码:</th>
+                                            <td id="licensePlateDisplay">京A12345</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">车辆类型:</th>
+                                            <td id="vehicleTypeDisplay">轿车</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">入场时间:</th>
+                                            <td id="entryTimeDisplay">2025-04-06 09:15</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">停车位置:</th>
+                                            <td id="parkingSpaceDisplay">A区-02</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6 border-start">
+                                <table class="table table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th class="ps-0" scope="row">出场时间:</th>
+                                            <td id="exitTimeDisplay">2025-04-06 14:30</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">停车时长:</th>
+                                            <td id="durationDisplay">5小时15分钟</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0" scope="row">计费规则:</th>
+                                            <td>首小时10元，之后每小时5元</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="ps-0 text-primary fw-bold" scope="row">应付金额:</th>
+                                            <td class="text-primary fw-bold" id="feeDisplay">¥32.5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-exclamation-circle text-warning me-1"></i>
+                                <small class="text-muted">请在15分钟内完成支付，超时需重新结算</small>
+                            </div>
+                            <button class="btn btn-primary" id="goToPayment">前往支付</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 支付方式选择 -->
+                <div class="card shadow-sm mb-4" id="paymentMethodCard" style="display: none;">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-credit-card me-2"></i>选择支付方式
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="payment-method-selector">
+                                    <div class="nav flex-column nav-pills" id="paymentTab" role="tablist">
+                                        <button class="nav-link active text-start" id="wechat-tab" data-bs-toggle="pill" data-bs-target="#wechat" type="button" role="tab">
+                                            <i class="fab fa-weixin text-success me-2"></i>微信支付
+                                        </button>
+                                        <button class="nav-link text-start" id="alipay-tab" data-bs-toggle="pill" data-bs-target="#alipay" type="button" role="tab">
+                                            <i class="fab fa-alipay text-primary me-2"></i>支付宝
+                                        </button>
+                                        <button class="nav-link text-start" id="unionpay-tab" data-bs-toggle="pill" data-bs-target="#unionpay" type="button" role="tab">
+                                            <i class="fas fa-credit-card text-danger me-2"></i>银联支付
+                                        </button>
+                                        <button class="nav-link text-start" id="apple-tab" data-bs-toggle="pill" data-bs-target="#apple" type="button" role="tab">
+                                            <i class="fab fa-apple text-dark me-2"></i>Apple Pay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="tab-content" id="paymentTabContent">
+                                    <div class="tab-pane fade show active" id="wechat" role="tabpanel">
+                                        <h5 class="mb-3">微信扫码支付</h5>
+                                        <p>请使用微信扫描下方二维码完成支付</p>
+                                        <div class="text-center p-4 bg-light rounded mb-3">
+                                            <div class="qrcode-wrapper">
+                                                <img src="" alt="微信支付二维码" id="wechatQrCode" class="img-fluid qrcode-image">
+                                                <div class="qrcode-placeholder">
+                                                    <i class="fas fa-qrcode fa-5x text-muted"></i>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted mt-2">二维码有效期: <span id="qrCodeTimer">15:00</span></p>
+                                        </div>
+                                        <div class="text-muted small">
+                                            <i class="fas fa-shield-alt me-1"></i>微信安全支付 | 由财付通提供安全支付服务
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="alipay" role="tabpanel">
+                                        <h5 class="mb-3">支付宝扫码支付</h5>
+                                        <p>请使用支付宝扫描下方二维码完成支付</p>
+                                        <div class="text-center p-4 bg-light rounded mb-3">
+                                            <div class="qrcode-wrapper">
+                                                <img src="" alt="支付宝支付二维码" id="alipayQrCode" class="img-fluid qrcode-image">
+                                                <div class="qrcode-placeholder">
+                                                    <i class="fas fa-qrcode fa-5x text-muted"></i>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted mt-2">二维码有效期: <span id="alipayQrCodeTimer">15:00</span></p>
+                                        </div>
+                                        <div class="text-muted small">
+                                            <i class="fas fa-shield-alt me-1"></i>支付宝安全支付 | 由蚂蚁金服提供安全支付服务
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="unionpay" role="tabpanel">
+                                        <h5 class="mb-3">银联卡支付</h5>
+                                        <p>请输入您的银行卡信息</p>
+                                        <form id="unionpayForm">
+                                            <div class="mb-3">
+                                                <label for="cardNumber" class="form-label">卡号</label>
+                                                <input type="text" class="form-control" id="cardNumber" placeholder="请输入16-19位银行卡号">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="cardExpiry" class="form-label">有效期</label>
+                                                    <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY">
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="cardCvv" class="form-label">安全码</label>
+                                                    <input type="text" class="form-control" id="cardCvv" placeholder="CVV">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="cardHolder" class="form-label">持卡人姓名</label>
+                                                <input type="text" class="form-control" id="cardHolder" placeholder="请输入持卡人姓名">
+                                            </div>
+                                            <button type="button" class="btn btn-primary" id="unionpayBtn">确认支付</button>
+                                        </form>
+                                        <div class="text-muted small mt-3">
+                                            <i class="fas fa-shield-alt me-1"></i>银联安全支付 | 通过SSL加密保障您的用卡安全
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="apple" role="tabpanel">
+                                        <h5 class="mb-3">Apple Pay</h5>
+                                        <p>请点击下方按钮，使用Apple Pay完成支付</p>
+                                        <div class="text-center p-4 bg-light rounded mb-3">
+                                            <button type="button" class="btn btn-dark btn-lg" id="applePayBtn">
+                                                <i class="fab fa-apple me-2"></i>Apple Pay
+                                            </button>
+                                            <p class="text-muted mt-3">使用Touch ID或Face ID验证</p>
+                                        </div>
+                                        <div class="text-muted small">
+                                            <i class="fas fa-shield-alt me-1"></i>Apple Pay安全支付 | 您的支付信息不会被存储
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button class="btn btn-outline-secondary" id="backToInfo">
+                                <i class="fas fa-arrow-left me-1"></i>返回
+                            </button>
+                            <button class="btn btn-success" id="simulatePayment">模拟支付成功</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 支付成功卡片 -->
+                <div class="card shadow-sm text-center" id="paymentSuccessCard" style="display: none;">
+                    <div class="card-body py-5">
+                        <div class="payment-success-icon mb-4">
+                            <i class="fas fa-check-circle text-success"></i>
+                        </div>
+                        <h3 class="mb-3">支付成功</h3>
+                        <p class="text-muted mb-4">您已成功支付停车费用</p>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>订单号:</th>
+                                            <td id="orderNumberDisplay">PS20250406125738</td>
+                                        </tr>
+                                        <tr>
+                                            <th>支付方式:</th>
+                                            <td id="paymentMethodDisplay">微信支付</td>
+                                        </tr>
+                                        <tr>
+                                            <th>支付金额:</th>
+                                            <td id="paymentAmountDisplay">¥32.5</td>
+                                        </tr>
+                                        <tr>
+                                            <th>支付时间:</th>
+                                            <td id="paymentTimeDisplay">2025-04-06 14:35:12</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning mt-3">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            请在15分钟内离场，超时将额外计费
+                        </div>
+                        
+                        <div class="d-flex justify-content-center gap-3 mt-4">
+                            <button class="btn btn-outline-primary" id="downloadReceipt">
+                                <i class="fas fa-file-download me-1"></i>下载电子收据
+                            </button>
+                            <button class="btn btn-primary" id="returnToHome">
+                                返回首页
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧停车场信息 -->
+            <div class="col-md-4 d-none d-lg-block">
+                <div class="card shadow-sm sticky-top" style="top: 20px;">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-parking me-2"></i>停车场信息
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <h5>智慧停车场</h5>
+                        <p>
+                            <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                            北京市海淀区XX路XX号
+                        </p>
+                        <p>
+                            <i class="fas fa-phone text-primary me-2"></i>
+                            010-12345678
+                        </p>
+                        <p>
+                            <i class="fas fa-clock text-success me-2"></i>
+                            24小时营业
+                        </p>
+                        
+                        <hr>
+                        
+                        <h6>收费标准</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>首小时10元</li>
+                            <li><i class="fas fa-check text-success me-2"></i>之后每小时5元</li>
+                            <li><i class="fas fa-check text-success me-2"></i>24小时封顶50元</li>
+                            <li><i class="fas fa-check text-success me-2"></i>新能源车八折优惠</li>
+                        </ul>
+                        
+                        <hr>
+                        
+                        <h6>客服热线</h6>
+                        <p class="mb-0">
+                            <i class="fas fa-headset me-2"></i>
+                            400-123-4567
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 智慧停车场. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="js/user_common.js"></script>
+    <script src="js/user_payment.js"></script>
+</body>
+</html>

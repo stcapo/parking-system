@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 智慧停车场</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义CSS -->
+    <link href="css/user_styles.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="user_index.html">
+                <i class="fas fa-parking me-2"></i>智慧停车场
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#services">服务介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#pricing">收费标准</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+                
+                <!-- 用户信息 -->
+                <div class="d-flex align-items-center" id="userInfo">
+                    <div class="dropdown">
+                        <a class="text-white dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span id="userDisplayName">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="user_profile.html"><i class="fas fa-id-card me-2"></i>个人中心</a></li>
+                            <li><a class="dropdown-item" href="user_my_vehicle.html"><i class="fas fa-car me-2"></i>我的车辆</a></li>
+                            <li><a class="dropdown-item" href="user_parking_history.html"><i class="fas fa-history me-2"></i>停车记录</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container py-4">
+        <!-- 欢迎消息 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-container me-3">
+                                <div class="avatar-placeholder rounded-circle" id="userAvatarPlaceholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <img src="" alt="用户头像" id="userAvatar" class="rounded-circle avatar-lg d-none" style="width: 60px; height: 60px; object-fit: cover;">
+                            </div>
+                            <div>
+                                <h4 class="mb-1" id="welcomeMessage">您好，<span id="dashboardUsername">用户</span>！</h4>
+                                <p class="text-muted mb-0">欢迎回到智慧停车场，祝您使用愉快。</p>
+                            </div>
+                            <div class="ms-auto d-none d-md-block">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-4 text-center">
+                                        <div class="small text-muted">会员等级</div>
+                                        <div class="badge bg-primary mt-1 p-2" id="userLevel">普通会员</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="small text-muted">账户余额</div>
+                                        <div class="fw-bold text-primary mt-1" id="userBalance">¥120.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要数据卡片 -->
+        <div class="row mb-4">
+            <!-- 当前停车状态 -->
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">当前停车状态</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- 有车停车中状态 -->
+                        <div id="activeParking">
+                            <div class="row">
+                                <div class="col-md-4 mb-3 mb-md-0 text-center">
+                                    <div class="vehicle-icon mb-2">
+                                        <i class="fas fa-car fa-4x text-danger"></i>
+                                    </div>
+                                    <h5 id="activeParkingPlate">京NEV789</h5>
+                                    <span class="badge bg-danger p-2">停车中</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row mb-4">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                                <span class="text-muted">停车位置:</span>
+                                            </div>
+                                            <h5 id="activeParkingLocation">总部停车场 - A区15号</h5>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-clock text-muted me-2"></i>
+                                                <span class="text-muted">已停车时长:</span>
+                                            </div>
+                                            <h5 id="activeParkingDuration">3小时25分钟</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-money-bill-wave text-muted me-2"></i>
+                                                <span class="text-muted">当前费用:</span>
+                                            </div>
+                                            <h5 class="text-primary" id="activeParkingFee">¥25.00</h5>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-calendar-alt text-muted me-2"></i>
+                                                <span class="text-muted">入场时间:</span>
+                                            </div>
+                                            <h5 id="activeParkingEntryTime">2025-04-06 09:15</h5>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <a href="user_payment.html?vehicle=京NEV789" class="btn btn-primary me-2">
+                                            <i class="fas fa-credit-card me-1"></i> 立即缴费
+                                        </a>
+                                        <button class="btn btn-outline-primary" id="locateVehicleBtn">
+                                            <i class="fas fa-map-marker-alt me-1"></i> 车辆定位
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 无车停车状态 -->
+                        <div id="noActiveParking" style="display: none;">
+                            <div class="text-center py-4">
+                                <img src="" alt="未停车" class="img-fluid mb-3" style="max-width: 150px;">
+                                <h5>您当前没有车辆在停车场内</h5>
+                                <p class="text-muted">所有车辆都已驶离停车场</p>
+                                <a href="user_my_vehicle.html" class="btn btn-outline-primary mt-2">
+                                    <i class="fas fa-car me-1"></i> 管理我的车辆
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 快捷功能 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">快捷功能</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <a href="user_my_vehicle.html" class="btn btn-light btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3">
+                                    <i class="fas fa-car fa-2x mb-2 text-primary"></i>
+                                    <span>我的车辆</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="user_parking_history.html" class="btn btn-light btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3">
+                                    <i class="fas fa-history fa-2x mb-2 text-primary"></i>
+                                    <span>停车记录</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="user_billing.html" class="btn btn-light btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3">
+                                    <i class="fas fa-file-invoice-dollar fa-2x mb-2 text-primary"></i>
+                                    <span>我的账单</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="user_profile.html" class="btn btn-light btn-lg w-100 h-100 d-flex flex-column align-items-center justify-content-center py-3">
+                                    <i class="fas fa-user-cog fa-2x mb-2 text-primary"></i>
+                                    <span>个人中心</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- 我的车辆 -->
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">我的车辆</h5>
+                        <a href="user_my_vehicle.html" class="btn btn-sm btn-outline-primary">
+                            查看全部
+                        </a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="dashboardVehiclesList">
+                            <!-- 示例车辆1 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="vehicle-icon me-3">
+                                        <i class="fas fa-car fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">京A12345</h6>
+                                            <span class="badge bg-success">已出场</span>
+                                        </div>
+                                        <p class="mb-0 small text-muted">宝马 3系 · 黑色轿车</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例车辆2 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="vehicle-icon me-3">
+                                        <i class="fas fa-charging-station fa-2x text-success"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">京NEV789</h6>
+                                            <span class="badge bg-danger">停车中</span>
+                                        </div>
+                                        <p class="mb-0 small text-muted">特斯拉 Model 3 · 白色新能源车</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 无车辆状态 -->
+                        <div id="noVehiclesInDashboard" class="text-center py-4" style="display: none;">
+                            <p class="mb-2 text-muted">您还没有添加车辆</p>
+                            <a href="user_my_vehicle.html" class="btn btn-sm btn-primary">
+                                <i class="fas fa-plus me-1"></i> 添加车辆
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 最近停车记录 -->
+            <div class="col-lg-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">最近停车记录</h5>
+                        <a href="user_parking_history.html" class="btn btn-sm btn-outline-primary">
+                            查看全部
+                        </a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="dashboardParkingRecords">
+                            <!-- 示例记录1 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">京A12345 · 总部停车场</h6>
+                                        <p class="mb-0 small text-muted">2025-04-05 08:30 - 2025-04-05 17:45</p>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-primary fw-bold">¥50.00</div>
+                                        <span class="badge bg-success">已支付</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例记录2 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">京A12345 · 商场停车场</h6>
+                                        <p class="mb-0 small text-muted">2025-04-03 14:20 - 2025-04-03 16:35</p>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-primary fw-bold">¥20.00</div>
+                                        <span class="badge bg-success">已支付</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例记录3 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">京NEV789 · 商场停车场</h6>
+                                        <p class="mb-0 small text-muted">2025-04-02 10:10 - 2025-04-02 11:55</p>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-primary fw-bold">¥16.00</div>
+                                        <span class="badge bg-success">已支付</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 无记录状态 -->
+                        <div id="noRecordsInDashboard" class="text-center py-4" style="display: none;">
+                            <p class="mb-0 text-muted">暂无停车记录</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第三行 -->
+        <div class="row">
+            <!-- 停车场车位信息 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">车位信息</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h6>总部停车场</h6>
+                            <div class="progress mb-2" style="height: 20px;">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                            </div>
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>剩余车位：25个</span>
+                                <span>总车位：100个</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h6>商场停车场</h6>
+                            <div class="progress mb-2" style="height: 20px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                            </div>
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>剩余车位：150个</span>
+                                <span>总车位：300个</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h6>医院停车场</h6>
+                            <div class="progress mb-2" style="height: 20px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                            </div>
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>剩余车位：140个</span>
+                                <span>总车位：200个</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 优惠信息 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">我的优惠</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="dashboardCoupons">
+                            <!-- 示例优惠券1 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="coupon-icon me-3 text-danger">
+                                        <i class="fas fa-ticket-alt fa-2x"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">10元停车抵用券</h6>
+                                            <span class="badge bg-warning text-dark">即将过期</span>
+                                        </div>
+                                        <p class="mb-0 small text-muted">有效期至：2025-04-30</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例优惠券2 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="coupon-icon me-3 text-success">
+                                        <i class="fas fa-percentage fa-2x"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">周末停车8折券</h6>
+                                            <span class="badge bg-success">可用</span>
+                                        </div>
+                                        <p class="mb-0 small text-muted">有效期至：2025-05-31</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例优惠券3 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="coupon-icon me-3 text-primary">
+                                        <i class="fas fa-car-side fa-2x"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">洗车服务券</h6>
+                                            <span class="badge bg-success">可用</span>
+                                        </div>
+                                        <p class="mb-0 small text-muted">有效期至：2025-06-15</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 无优惠券状态 -->
+                        <div id="noCouponsInDashboard" class="text-center py-4" style="display: none;">
+                            <p class="mb-0 text-muted">暂无可用优惠券</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 公告与提醒 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">公告与提醒</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <!-- 示例公告1 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="notice-icon me-3 text-danger">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">系统维护通知</h6>
+                                        <p class="mb-0 small text-muted">今晚22:00-23:00系统进行例行维护，期间可能无法正常使用。</p>
+                                        <small class="text-muted">2025-04-06</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例公告2 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="notice-icon me-3 text-warning">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">节假日收费标准调整</h6>
+                                        <p class="mb-0 small text-muted">五一期间停车费用有所调整，请查看详情。</p>
+                                        <small class="text-muted">2025-04-04</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 示例公告3 -->
+                            <div class="list-group-item px-4 py-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="notice-icon me-3 text-info">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">新增支付方式</h6>
+                                        <p class="mb-0 small text-muted">现已支持数字人民币支付，欢迎体验。</p>
+                                        <small class="text-muted">2025-04-01</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 车辆定位模态框 -->
+    <div class="modal fade" id="locateVehicleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">车辆定位</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <h6>您的车辆位于: <span class="text-primary">总部停车场 - A区15号</span></h6>
+                    </div>
+                    
+                    <div class="parking-map-container border p-2 rounded">
+                        <div class="ratio ratio-16x9">
+                            <div class="bg-light d-flex align-items-center justify-content-center">
+                                <div class="parking-map-placeholder" style="width: 100%; height: 100%;">
+                                    <div class="d-flex flex-column align-items-center justify-content-center h-100 p-4">
+                                        <i class="fas fa-map fa-4x text-muted mb-3"></i>
+                                        <h5>停车场地图</h5>
+                                        <p class="text-muted mb-0 text-center">此处将显示停车场地图及您的车辆位置</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-info-circle me-2"></i>
+                        您可以在停车场内打开手机蓝牙和位置服务，系统将引导您找到您的车辆。
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="startNaviBtn">
+                        <i class="fas fa-directions me-1"></i> 开始导航
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="py-3 bg-dark text-white text-center mt-auto">
+        <div class="container">
+            <p class="mb-0">© 2025 智慧停车场. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="js/user_common.js"></script>
+    <script src="js/user_dashboard.js"></script>
+</body>
+</html>

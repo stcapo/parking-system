@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息 - 智慧停车场</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义CSS -->
+    <link href="css/user_styles.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="user_index.html">
+                <i class="fas fa-parking me-2"></i>智慧停车场
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#services">服务介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#pricing">收费标准</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_index.html#contact">联系我们</a>
+                    </li>
+                </ul>
+                
+                <!-- 用户信息 -->
+                <div class="d-flex align-items-center" id="userInfo">
+                    <div class="dropdown">
+                        <a class="text-white dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span id="userDisplayName">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="user_dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>个人仪表盘</a></li>
+                            <li><a class="dropdown-item active" href="user_profile.html"><i class="fas fa-id-card me-2"></i>个人中心</a></li>
+                            <li><a class="dropdown-item" href="user_my_vehicle.html"><i class="fas fa-car me-2"></i>我的车辆</a></li>
+                            <li><a class="dropdown-item" href="user_parking_history.html"><i class="fas fa-history me-2"></i>停车记录</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">个人中心</h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="user_dashboard.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-tachometer-alt me-2"></i>仪表盘
+                        </a>
+                        <a href="user_profile.html" class="list-group-item list-group-item-action active">
+                            <i class="fas fa-user me-2"></i>个人信息
+                        </a>
+                        <a href="user_my_vehicle.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-car me-2"></i>我的车辆
+                        </a>
+                        <a href="user_parking_history.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-history me-2"></i>停车记录
+                        </a>
+                        <a href="user_billing.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-credit-card me-2"></i>我的账单
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧内容 -->
+            <div class="col-lg-9">
+                <!-- 个人资料卡片 -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="mb-0">基本资料</h5>
+                            <button class="btn btn-sm btn-primary" id="editProfileBtn">
+                                <i class="fas fa-edit me-1"></i> 编辑资料
+                            </button>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-3 text-center mb-4 mb-md-0">
+                                <div class="avatar-container mb-3">
+                                    <img src="" alt="用户头像" id="userAvatar" class="rounded-circle avatar-lg">
+                                    <div class="avatar-placeholder rounded-circle">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <span class="badge bg-success mb-1" id="userVerificationBadge">已实名认证</span>
+                                    <p class="text-muted small" id="userRegistrationDate">注册时间：2025-03-15</p>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 150px;">用户名</th>
+                                            <td id="profileUsername">zhang_san</td>
+                                        </tr>
+                                        <tr>
+                                            <th>真实姓名</th>
+                                            <td id="profileRealName">张三</td>
+                                        </tr>
+                                        <tr>
+                                            <th>手机号码</th>
+                                            <td id="profilePhone">138****8888</td>
+                                        </tr>
+                                        <tr>
+                                            <th>电子邮箱</th>
+                                            <td id="profileEmail">zhang_san@example.com</td>
+                                        </tr>
+                                        <tr>
+                                            <th>身份证号</th>
+                                            <td id="profileIdNumber">110*************789</td>
+                                        </tr>
+                                        <tr>
+                                            <th>会员等级</th>
+                                            <td><span class="badge bg-primary">普通会员</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 安全设置卡片 -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">账号安全</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">登录密码</h6>
+                                        <p class="mb-0 text-muted small">定期修改密码可以保护账号安全</p>
+                                    </div>
+                                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                                        修改
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="list-group-item py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">手机验证</h6>
+                                        <p class="mb-0 text-muted small">已绑定手机：138****8888</p>
+                                    </div>
+                                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#changePhoneModal">
+                                        更换
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="list-group-item py-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">实名认证</h6>
+                                        <p class="mb-0 text-muted small" id="verificationStatus">已完成实名认证</p>
+                                    </div>
+                                    <button class="btn btn-outline-success" id="verificationBtn" disabled>
+                                        已认证
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 服务订阅卡片 -->
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h5 class="mb-0">服务订阅</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>服务名称</th>
+                                        <th>开通状态</th>
+                                        <th>到期时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-parking text-primary me-2"></i>
+                                                <div>
+                                                    <div>月卡会员</div>
+                                                    <small class="text-muted">无限次停车，享受折扣</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success">已开通</span></td>
+                                        <td>2025-05-15</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">续费</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-car-wash text-primary me-2"></i>
+                                                <div>
+                                                    <div>洗车服务</div>
+                                                    <small class="text-muted">每月2次洗车服务</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-secondary">未开通</span></td>
+                                        <td>-</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary">开通</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-oil-can text-primary me-2"></i>
+                                                <div>
+                                                    <div>保养提醒</div>
+                                                    <small class="text-muted">定期保养提醒服务</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-success">已开通</span></td>
+                                        <td>2025-12-31</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">续费</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑个人资料模态框 -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">编辑个人资料</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <label for="editUsername" class="form-label">用户名</label>
+                            <input type="text" class="form-control" id="editUsername" value="zhang_san" readonly>
+                            <div class="form-text">用户名不可修改</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editRealName" class="form-label">真实姓名</label>
+                            <input type="text" class="form-control" id="editRealName" value="张三">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEmail" class="form-label">电子邮箱</label>
+                            <input type="email" class="form-control" id="editEmail" value="zhang_san@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAvatar" class="form-label">更换头像</label>
+                            <input type="file" class="form-control" id="editAvatar" accept="image/*">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveProfileBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改密码模态框 -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">修改密码</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="passwordForm">
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">当前密码</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="currentPassword" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">新密码</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="newPassword" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">密码长度至少8位，包含字母和数字</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmNewPassword" class="form-label">确认新密码</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirmNewPassword" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button" tabindex="-1">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="savePasswordBtn">确认修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更换手机号模态框 -->
+    <div class="modal fade" id="changePhoneModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">更换手机号</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="phoneForm">
+                        <div class="mb-3">
+                            <label for="currentPhone" class="form-label">当前手机号</label>
+                            <input type="text" class="form-control" id="currentPhone" value="138****8888" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPhone" class="form-label">新手机号</label>
+                            <input type="text" class="form-control" id="newPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneVerificationCode" class="form-label">验证码</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="phoneVerificationCode" required>
+                                <button class="btn btn-outline-primary" type="button" id="sendCodeBtn">
+                                    获取验证码
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="savePhoneBtn">确认修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 实名认证模态框 -->
+    <div class="modal fade" id="verificationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">实名认证</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        实名认证后可享受更多便捷服务，您的信息将被严格保密
+                    </div>
+                    <form id="verificationForm">
+                        <div class="mb-3">
+                            <label for="verificationName" class="form-label">真实姓名</label>
+                            <input type="text" class="form-control" id="verificationName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="verificationIdNumber" class="form-label">身份证号码</label>
+                            <input type="text" class="form-control" id="verificationIdNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="verificationIdFront" class="form-label">身份证正面照</label>
+                            <input type="file" class="form-control" id="verificationIdFront" accept="image/*" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="verificationIdBack" class="form-label">身份证反面照</label>
+                            <input type="file" class="form-control" id="verificationIdBack" accept="image/*" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="verificationAgreement" required>
+                            <label class="form-check-label" for="verificationAgreement">
+                                我同意智慧停车场收集和使用我的身份信息用于实名认证
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="submitVerificationBtn">提交认证</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 智慧停车场. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="js/user_common.js"></script>
+    <script src="js/user_profile.js"></script>
+</body>
+</html>

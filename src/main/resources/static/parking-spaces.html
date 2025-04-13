@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车位管理 - 智能停车管理系统</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-parking"></i> 智能停车管理系统
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vehicles.html">车辆管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="parking-spaces.html">车位管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="records.html">停车记录</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">系统设置</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> 退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container mt-4">
+        <h2>车位管理</h2>
+
+        <!-- 状态统计 -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5>总车位数</h5>
+                        <h2 id="totalSpaces">60</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5>空闲车位</h5>
+                        <h2 id="availableSpaces">23</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <h5>已占用车位</h5>
+                        <h2 id="occupiedSpaces">37</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h5>使用率</h5>
+                        <h2 id="occupancyRate">61.7%</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 管理控制栏 -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <select class="form-select" id="spaceTypeFilter">
+                        <option value="all">所有车位</option>
+                        <option value="standard">标准车位</option>
+                        <option value="large">大型车位</option>
+                        <option value="charging">充电车位</option>
+                    </select>
+                    <select class="form-select" id="statusFilter">
+                        <option value="all">所有状态</option>
+                        <option value="available">空闲</option>
+                        <option value="occupied">已占用</option>
+                    </select>
+                    <button class="btn btn-primary" id="filterBtn">筛选</button>
+                </div>
+            </div>
+            <div class="col-md-6 text-end">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addSpaceModal">
+                    <i class="fas fa-plus"></i> 添加车位
+                </button>
+            </div>
+        </div>
+        
+        <!-- 车位网格 -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">车位状态</h5>
+                <div class="row g-3 mt-2" id="parkingGrid">
+                    <!-- 动态加载内容 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑车位模态框 -->
+    <div class="modal fade" id="addSpaceModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="spaceModalTitle">添加车位</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="spaceForm">
+                        <input type="hidden" id="spaceId">
+                        <div class="mb-3">
+                            <label for="spaceLocation" class="form-label">车位位置</label>
+                            <input type="text" class="form-control" id="spaceLocation" required>
+                            <div class="form-text">例如: A区-01</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="spaceType" class="form-label">车位类型</label>
+                            <select class="form-select" id="spaceType">
+                                <option value="standard">标准车位</option>
+                                <option value="large">大型车位</option>
+                                <option value="charging">充电车位</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="isOccupied">
+                            <label class="form-check-label" for="isOccupied">已占用</label>
+                        </div>
+                        <div class="mb-3" id="vehicleSelectContainer" style="display: none;">
+                            <label for="vehicleSelect" class="form-label">占用车辆</label>
+                            <select class="form-select" id="vehicleSelect">
+                                <!-- 动态加载车辆 -->
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveSpace">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 车位详情模态框 -->
+    <div class="modal fade" id="spaceDetailModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">车位详情</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title" id="detailSpaceLocation">A区-01</h5>
+                            <p class="card-text" id="detailSpaceType">标准车位</p>
+                            <p class="card-text" id="detailSpaceStatus">状态: 空闲</p>
+                        </div>
+                    </div>
+                    
+                    <div id="occupiedVehicleInfo" style="display: none;">
+                        <h6>占用车辆信息</h6>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>车牌号</th>
+                                <td id="detailVehiclePlate"></td>
+                            </tr>
+                            <tr>
+                                <th>车型</th>
+                                <td id="detailVehicleType"></td>
+                            </tr>
+                            <tr>
+                                <th>车主</th>
+                                <td id="detailVehicleOwner"></td>
+                            </tr>
+                            <tr>
+                                <th>入场时间</th>
+                                <td id="detailEntryTime"></td>
+                            </tr>
+                            <tr>
+                                <th>已停时长</th>
+                                <td id="detailParkingDuration"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-warning" id="editSpaceBtn">编辑车位</button>
+                    <button type="button" class="btn btn-danger" id="releaseSpaceBtn" style="display: none;">释放车位</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="js/common.js"></script>
+    <script src="js/parking.js"></script>
+</body>
+</html>

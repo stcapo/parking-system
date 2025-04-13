@@ -1,0 +1,158 @@
+/* 自定义样式 */
+
+/* 基础样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+/* 卡片样式 */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 车位网格样式 */
+.parking-space {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.parking-space:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.parking-space.available {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.parking-space.occupied {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.parking-space.charging {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+.parking-space .space-id {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.parking-space .space-status {
+    font-size: 0.9rem;
+}
+
+.parking-space .vehicle-info {
+    font-size: 0.8rem;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #ccc;
+}
+
+/* 按钮与表单元素 */
+.btn {
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+.input-group .btn {
+    padding: 6px 12px;
+}
+
+/* 表格样式 */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* 状态标签 */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-paid {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-unpaid {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* 登录表单 */
+#loginForm {
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 夜间模式 */
+body.dark-mode {
+    background-color: #222;
+    color: #eee;
+}
+
+body.dark-mode .card {
+    background-color: #333;
+    border-color: #444;
+}
+
+body.dark-mode .table {
+    color: #eee;
+}
+
+body.dark-mode .table th {
+    background-color: #444;
+}
+
+body.dark-mode .modal-content {
+    background-color: #333;
+    color: #eee;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+}

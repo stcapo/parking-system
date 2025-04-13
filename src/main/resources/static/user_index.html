@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧停车场 - 欢迎光临</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义CSS -->
+    <link href="css/user_styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="user_index.html">
+                <i class="fas fa-parking me-2"></i>智慧停车场
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="user_index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">服务介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">收费标准</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系我们</a>
+                    </li>
+                </ul>
+                
+                <!-- 未登录状态 -->
+                <div class="d-flex" id="notLoggedIn">
+                    <a href="user_login.html" class="btn btn-outline-light me-2">登录</a>
+                    <a href="user_register.html" class="btn btn-light">注册</a>
+                </div>
+                
+                <!-- 已登录状态 -->
+                <div class="d-flex align-items-center" id="loggedIn" style="display: none !important;">
+                    <a href="user_dashboard.html" class="btn btn-light btn-sm me-3">
+                        <i class="fas fa-tachometer-alt me-1"></i> 我的仪表盘
+                    </a>
+                    <div class="dropdown">
+                        <a class="text-white dropdown-toggle me-3" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span id="userDisplayName">用户名</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="user_dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>个人仪表盘</a></li>
+                            <li><a class="dropdown-item" href="user_profile.html"><i class="fas fa-id-card me-2"></i>个人中心</a></li>
+                            <li><a class="dropdown-item" href="user_my_vehicle.html"><i class="fas fa-car me-2"></i>我的车辆</a></li>
+                            <li><a class="dropdown-item" href="user_parking_history.html"><i class="fas fa-history me-2"></i>停车记录</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主横幅 -->
+    <section class="hero-banner">
+        <div class="hero-image">
+            <!-- 您可以在此处添加背景图片 -->
+            <img src="" alt="智慧停车场" class="img-fluid w-100">
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero-content">
+                                <h1>智慧停车 · 便捷出行</h1>
+                                <p class="lead">全城最先进的智能停车解决方案，为您提供无忧停车体验</p>
+                                <div class="mt-4">
+                                    <a href="#services" class="btn btn-primary btn-lg me-2">了解更多</a>
+                                    <a href="user_register.html" class="btn btn-outline-light btn-lg">立即注册</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色服务 -->
+    <section class="py-5" id="services">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>我们的服务</h2>
+                <p class="text-muted">为您提供全方位的智能停车体验</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-car-alt"></i>
+                            </div>
+                            <h4 class="mt-4">车牌自动识别</h4>
+                            <p class="text-muted">先进的车牌识别系统，无需停车即可快速通行，节省您的宝贵时间</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 class="mt-4">手机在线支付</h4>
+                            <p class="text-muted">多种支付方式，手机轻松完成支付，免去排队困扰</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h4 class="mt-4">车位引导系统</h4>
+                            <p class="text-muted">智能引导您到最近的空闲车位，告别停车场内绕圈找车位</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-search-location"></i>
+                            </div>
+                            <h4 class="mt-4">车辆寻找系统</h4>
+                            <p class="text-muted">忘记停车位置？使用我们的app轻松找到您的爱车</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-charging-station"></i>
+                            </div>
+                            <h4 class="mt-4">电动车充电桩</h4>
+                            <p class="text-muted">配备多个充电桩，支持多种电动车型，停车同时为爱车充电</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 service-card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="mt-4">24小时安全监控</h4>
+                            <p class="text-muted">全方位视频监控系统，保障您的爱车安全</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 收费标准 -->
+    <section class="py-5 bg-light" id="pricing">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>收费标准</h2>
+                <p class="text-muted">透明合理的价格体系</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card price-card">
+                        <div class="card-header text-center bg-primary text-white">
+                            <h4 class="mb-0">临时停车</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-value text-center">
+                                <h2>¥5<span>/小时</span></h2>
+                            </div>
+                            <ul class="list-group list-group-flush mt-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>首小时10元</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>之后每小时5元</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>24小时封顶50元</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>新能源车八折优惠</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>节假日价格略有调整</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="user_register.html" class="btn btn-outline-primary">立即注册</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card price-card">
+                        <div class="card-header text-center bg-success text-white">
+                            <h4 class="mb-0">月卡套餐</h4>
+                            <span class="badge bg-warning mt-2">最受欢迎</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-value text-center">
+                                <h2>¥300<span>/月</span></h2>
+                            </div>
+                            <ul class="list-group list-group-flush mt-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>无限次进出</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>固定车位分配</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>含基础洗车服务</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>新能源车充电优惠</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>季付享受9折优惠</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="user_register.html" class="btn btn-success">立即注册</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card price-card">
+                        <div class="card-header text-center bg-info text-white">
+                            <h4 class="mb-0">年卡套餐</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-value text-center">
+                                <h2>¥3000<span>/年</span></h2>
+                            </div>
+                            <ul class="list-group list-group-flush mt-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>月卡全部特权</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>贵宾专属车位</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>每月免费洗车2次</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>赠送汽车年检服务</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i>综合优惠8.3折</li>
+                            </ul>
+                            <div class="text-center mt-4">
+                                <a href="user_register.html" class="btn btn-outline-info">立即注册</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 停车场实景 -->
+    <section class="py-5" id="gallery">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>停车场实景</h2>
+                <p class="text-muted">现代化的停车环境，为您的爱车提供舒适空间</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="" alt="停车场入口" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="" alt="停车场内部" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="" alt="充电桩" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="" alt="车位引导系统" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="" alt="自助缴费终端" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>联系我们</h2>
+                <p class="text-muted">随时为您提供支持和帮助</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="mb-4">联系方式</h4>
+                            <ul class="list-unstyled contact-list">
+                                <li class="mb-3">
+                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                    <span>北京市海淀区XX路XX号</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-phone me-2 text-primary"></i>
+                                    <span>010-12345678</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-envelope me-2 text-primary"></i>
+                                    <span>contact@smartparking.com</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-clock me-2 text-primary"></i>
+                                    <span>24小时营业</span>
+                                </li>
+                            </ul>
+                            <h5 class="mt-4 mb-3">关注我们</h5>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="mb-4">留言咨询</h4>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">您的姓名</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">电子邮箱</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">联系电话</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">留言内容</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">提交留言</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-parking me-2"></i>智慧停车场</h5>
+                    <p>为您提供高品质的智能停车服务</p>
+                    <p>© 2025 智慧停车场. 保留所有权利.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>快速链接</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="user_index.html" class="text-white">首页</a></li>
+                        <li><a href="#services" class="text-white">服务介绍</a></li>
+                        <li><a href="#pricing" class="text-white">收费标准</a></li>
+                        <li><a href="#contact" class="text-white">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>客户服务</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">帮助中心</a></li>
+                        <li><a href="#" class="text-white">常见问题</a></li>
+                        <li><a href="#" class="text-white">隐私政策</a></li>
+                        <li><a href="#" class="text-white">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="js/user_common.js"></script>
+    <script src="js/user_index.js"></script>
+</body>
+</html>

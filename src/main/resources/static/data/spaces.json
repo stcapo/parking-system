@@ -1,0 +1,212 @@
+[
+  {
+    "id": "p001",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "A区-01"
+  },
+  {
+    "id": "p002",
+    "isOccupied": true,
+    "vehicleId": "v001",
+    "type": "standard",
+    "location": "A区-02"
+  },
+  {
+    "id": "p003",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "large",
+    "location": "B区-01"
+  },
+  {
+    "id": "p004",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "charging",
+    "location": "C区-01"
+  },
+  {
+    "id": "p005",
+    "isOccupied": true,
+    "vehicleId": "v003",
+    "type": "charging",
+    "location": "C区-02"
+  },
+  {
+    "id": "p006",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "A区-03"
+  },
+  {
+    "id": "p007",
+    "isOccupied": true,
+    "vehicleId": "v005",
+    "type": "standard",
+    "location": "A区-04"
+  },
+  {
+    "id": "p008",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "A区-05"
+  },
+  {
+    "id": "p009",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "A区-06"
+  },
+  {
+    "id": "p010",
+    "isOccupied": true,
+    "vehicleId": "v008",
+    "type": "standard",
+    "location": "A区-07"
+  },
+  {
+    "id": "p011",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "large",
+    "location": "B区-02"
+  },
+  {
+    "id": "p012",
+    "isOccupied": true,
+    "vehicleId": "v007",
+    "type": "large",
+    "location": "B区-03"
+  },
+  {
+    "id": "p013",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "large",
+    "location": "B区-04"
+  },
+  {
+    "id": "p014",
+    "isOccupied": true,
+    "vehicleId": "v015",
+    "type": "large",
+    "location": "B区-05"
+  },
+  {
+    "id": "p015",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "charging",
+    "location": "C区-03"
+  },
+  {
+    "id": "p016",
+    "isOccupied": true,
+    "vehicleId": "v010",
+    "type": "charging",
+    "location": "C区-04"
+  },
+  {
+    "id": "p017",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "charging",
+    "location": "C区-05"
+  },
+  {
+    "id": "p018",
+    "isOccupied": true,
+    "vehicleId": "v013",
+    "type": "charging",
+    "location": "C区-06"
+  },
+  {
+    "id": "p019",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "D区-01"
+  },
+  {
+    "id": "p020",
+    "isOccupied": true,
+    "vehicleId": "v011",
+    "type": "standard",
+    "location": "D区-02"
+  },
+  {
+    "id": "p021",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "D区-03"
+  },
+  {
+    "id": "p022",
+    "isOccupied": true,
+    "vehicleId": "v014",
+    "type": "standard",
+    "location": "D区-04"
+  },
+  {
+    "id": "p023",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "standard",
+    "location": "D区-05"
+  },
+  {
+    "id": "p024",
+    "isOccupied": true,
+    "vehicleId": "v017",
+    "type": "charging",
+    "location": "E区-01"
+  },
+  {
+    "id": "p025",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "charging",
+    "location": "E区-02"
+  },
+  {
+    "id": "p026",
+    "isOccupied": true,
+    "vehicleId": "v020",
+    "type": "charging",
+    "location": "E区-03"
+  },
+  {
+    "id": "p027",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "large",
+    "location": "F区-01"
+  },
+  {
+    "id": "p028",
+    "isOccupied": true,
+    "vehicleId": "v022",
+    "type": "large",
+    "location": "F区-02"
+  },
+  {
+    "id": "p029",
+    "isOccupied": false,
+    "vehicleId": null,
+    "type": "large",
+    "location": "F区-03"
+  },
+  {
+    "id": "p030",
+    "isOccupied": true,
+    "vehicleId": "v029",
+    "type": "large",
+    "location": "F区-04"
+  }
+]

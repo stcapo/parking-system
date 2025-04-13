@@ -1,0 +1,21 @@
+{
+  "pricing": {
+    "basePrice": 10,
+    "hourlyRate": 5,
+    "maxDailyFee": 50,
+    "discounts": {
+      "newEnergy": 0.8,
+      "monthly": 0.7
+    },
+    "holidayRates": true,
+    "holidayMultiplier": 1.5
+  },
+  "system": {
+    "parkingName": "智能停车管理系统演示",
+    "contactPhone": "010-12345678",
+    "address": "北京市海淀区XX路XX号",
+    "darkMode": false,
+    "showStatistics": true,
+    "refreshInterval": 30
+  }
+}

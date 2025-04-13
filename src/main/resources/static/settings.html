@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统设置 - 智能停车管理系统</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 自定义CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-parking"></i> 智能停车管理系统
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vehicles.html">车辆管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="parking-spaces.html">车位管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="records.html">停车记录</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="settings.html">系统设置</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> 退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container mt-4">
+        <h2>系统设置</h2>
+
+        <!-- 设置选项卡 -->
+        <ul class="nav nav-tabs mb-4" id="settingsTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pricing-tab" data-bs-toggle="tab" data-bs-target="#pricing" type="button" role="tab">收费设置</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="system-tab" data-bs-toggle="tab" data-bs-target="#system" type="button" role="tab">系统设置</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="backup-tab" data-bs-toggle="tab" data-bs-target="#backup" type="button" role="tab">数据备份</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="settingsTabsContent">
+            <!-- 收费设置 -->
+            <div class="tab-pane fade show active" id="pricing" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">停车收费规则设置</h5>
+                        <form id="pricingForm">
+                            <div class="mb-3">
+                                <label for="basePrice" class="form-label">基础费用（元）</label>
+                                <input type="number" class="form-control" id="basePrice" min="0" step="0.1">
+                                <div class="form-text">车辆入场的基础收费</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="hourlyRate" class="form-label">小时费率（元/小时）</label>
+                                <input type="number" class="form-control" id="hourlyRate" min="0" step="0.1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="maxDailyFee" class="form-label">每日上限（元）</label>
+                                <input type="number" class="form-control" id="maxDailyFee" min="0" step="1">
+                                <div class="form-text">24小时内最高收费金额</div>
+                            </div>
+
+                            <hr>
+                            <h6>折扣设置</h6>
+                            
+                            <div class="mb-3">
+                                <label for="newEnergyDiscount" class="form-label">新能源车折扣系数</label>
+                                <input type="number" class="form-control" id="newEnergyDiscount" min="0" max="1" step="0.01">
+                                <div class="form-text">例如：0.8 表示享受8折优惠</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="monthlyDiscount" class="form-label">月卡用户折扣系数</label>
+                                <input type="number" class="form-control" id="monthlyDiscount" min="0" max="1" step="0.01">
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="holidayRates">
+                                <label class="form-check-label" for="holidayRates">节假日特殊费率</label>
+                            </div>
+                            <div class="mb-3" id="holidayRatesContainer" style="display: none;">
+                                <label for="holidayMultiplier" class="form-label">节假日费率倍数</label>
+                                <input type="number" class="form-control" id="holidayMultiplier" min="1" step="0.1" value="1.5">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="savePricingBtn">保存设置</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系统设置 -->
+            <div class="tab-pane fade" id="system" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">系统基本设置</h5>
+                        <form id="systemSettingsForm">
+                            <div class="mb-3">
+                                <label for="parkingName" class="form-label">停车场名称</label>
+                                <input type="text" class="form-control" id="parkingName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactPhone" class="form-label">联系电话</label>
+                                <input type="text" class="form-control" id="contactPhone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">停车场地址</label>
+                                <input type="text" class="form-control" id="address">
+                            </div>
+
+                            <hr>
+                            <h6>显示设置</h6>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="darkMode">
+                                <label class="form-check-label" for="darkMode">深色模式</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="showStatistics">
+                                <label class="form-check-label" for="showStatistics">显示统计数据</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="refreshInterval" class="form-label">数据刷新间隔（秒）</label>
+                                <input type="number" class="form-control" id="refreshInterval" min="5" max="60" step="1">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="saveSystemBtn">保存设置</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据备份 -->
+            <div class="tab-pane fade" id="backup" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">数据备份与恢复</h5>
+                        
+                        <div class="alert alert-info" role="alert">
+                            <i class="fas fa-info-circle"></i> 
+                            备份功能将导出系统所有数据为JSON文件，方便您保存和恢复数据。
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title">备份数据</h6>
+                                        <p class="card-text">将当前系统的所有数据导出为JSON文件</p>
+                                        <button type="button" class="btn btn-primary" id="backupBtn">
+                                            <i class="fas fa-download"></i> 导出备份
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h6 class="card-title">恢复数据</h6>
+                                        <p class="card-text">从之前的备份恢复系统数据</p>
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" id="restoreFile" accept=".json">
+                                        </div>
+                                        <button type="button" class="btn btn-warning" id="restoreBtn">
+                                            <i class="fas fa-upload"></i> 恢复数据
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h6>数据清理</h6>
+                        <div class="alert alert-danger" role="alert">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            警告：清理操作不可逆，请确保已备份重要数据
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="cleanupDate" class="form-label">清理此日期之前的停车记录</label>
+                            <input type="date" class="form-control" id="cleanupDate">
+                        </div>
+                        <button type="button" class="btn btn-danger" id="cleanupBtn">
+                            <i class="fas fa-trash-alt"></i> 清理数据
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认操作模态框 -->
+    <div class="modal fade" id="confirmActionModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmActionTitle">确认操作</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="confirmActionMessage">您确定要执行此操作吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" id="confirmActionBtn">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义JS -->
+    <script src="js/common.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

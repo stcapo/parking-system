@@ -1,0 +1,499 @@
+/* 智慧停车场用户界面样式 */
+
+/* 基础样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+/* 导航栏样式 */
+.navbar-brand i {
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+/* 英雄区 */
+.hero-banner {
+    position: relative;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.hero-image {
+    position: relative;
+    height: 500px;
+    background-color: #0d6efd;
+    background-image: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
+    overflow: hidden;
+}
+
+.hero-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 特色服务 */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #e9f5ff;
+    color: #0d6efd;
+    border-radius: 50%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .feature-icon {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.1);
+}
+
+.service-card {
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 价格卡片 */
+.price-card {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.price-value {
+    padding: 1.5rem 0;
+}
+
+.price-value h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.price-value h2 span {
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: normal;
+}
+
+/* 图片库 */
+.gallery-item {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    transition: all 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 联系我们 */
+.contact-list i {
+    width: 20px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* 表单样式 */
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* 页脚 */
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0d6efd !important;
+}
+
+/* 登录注册页面 */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #495057;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* 注册步骤 */
+.registration-steps, .payment-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 10px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-title {
+    font-size: 0.875rem;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.step.active .step-title {
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.step-connector {
+    flex-grow: 1;
+    height: 3px;
+    background-color: #e9ecef;
+    margin: 0 15px;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.step-connector.active {
+    background-color: #0d6efd;
+}
+
+/* 支付页面 */
+.payment-method-selector .nav-link {
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #495057;
+}
+
+.payment-method-selector .nav-link.active {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.qrcode-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.qrcode-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.qrcode-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+
+.payment-success-icon {
+    font-size: 5rem;
+    color: #28a745;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 767.98px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-image {
+        height: 400px;
+    }
+    
+    .step-title {
+        font-size: 0.75rem;
+    }
+}
+
+/* 仪表盘样式 */
+.avatar-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #e9ecef;
+    color: #adb5bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.vehicle-icon i, .coupon-icon i, .notice-icon i {
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover .vehicle-icon i {
+    transform: translateY(-3px);
+}
+
+/* 快捷功能按钮 */
+.btn-light {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: #e9ecef;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 停车状态卡片 */
+#activeParking {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 进度条样式 */
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    transition: width 1s ease;
+}
+
+/* 停车地图占位符 */
+.parking-map-placeholder {
+    border: 2px dashed #dee2e6;
+    border-radius: 5px;
+}
+
+/* 卡片悬停效果 */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+/* 用户账单页面样式 */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+.selected-payment {
+    position: relative;
+}
+
+.selected-payment::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 2px solid #0d6efd;
+    border-radius: 0.375rem;
+    pointer-events: none;
+}
+
+/* 自定义开关样式 */
+.form-switch .form-check-input {
+    width: 3em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+/* 显示详情动画 */
+#successDetails {
+    transition: all 0.3s ease;
+}
+
+#successDetails:not(.d-none) {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "id": "v001",
+    "licensePlate": "京Z12345",
+    "vehicleType": "sedan",
+    "color": "黑色",
+    "owner": "张三",
+    "phone": "13800138000"
+  },
+  {
+    "id": "v002",
+    "licensePlate": "京B67890",
+    "vehicleType": "suv",
+    "color": "白色",
+    "owner": "李四",
+    "phone": "13900139000"
+  },
+  {
+    "id": "v003",
+    "licensePlate": "京C13579",
+    "vehicleType": "new-energy",
+    "color": "蓝色",
+    "owner": "王五",
+    "phone": "13700137000"
+  },
+  {
+    "id": "v004",
+    "licensePlate": "京D24680",
+    "vehicleType": "sedan",
+    "color": "红色",
+    "owner": "赵六",
+    "phone": "13800138001"
+  },
+  {
+    "id": "v005",
+    "licensePlate": "京E98765",
+    "vehicleType": "suv",
+    "color": "银色",
+    "owner": "钱七",
+    "phone": "13900139001"
+  },
+  {
+    "id": "v006",
+    "licensePlate": "京F45678",
+    "vehicleType": "new-energy",
+    "color": "绿色",
+    "owner": "孙八",
+    "phone": "13700137001"
+  },
+  {
+    "id": "v007",
+    "licensePlate": "京G87654",
+    "vehicleType": "truck",
+    "color": "灰色",
+    "owner": "周九",
+    "phone": "13800138002"
+  },
+  {
+    "id": "v008",
+    "licensePlate": "京H34567",
+    "vehicleType": "sedan",
+    "color": "黑色",
+    "owner": "吴十",
+    "phone": "13900139002"
+  },
+  {
+    "id": "v009",
+    "licensePlate": "京J56789",
+    "vehicleType": "suv",
+    "color": "白色",
+    "owner": "郑十一",
+    "phone": "13700137002"
+  },
+  {
+    "id": "v010",
+    "licensePlate": "京K78901",
+    "vehicleType": "new-energy",
+    "color": "蓝色",
+    "owner": "王十二",
+    "phone": "13800138003"
+  },
+  {
+    "id": "v011",
+    "licensePlate": "京L23456",
+    "vehicleType": "sedan",
+    "color": "红色",
+    "owner": "李十三",
+    "phone": "13900139003"
+  },
+  {
+    "id": "v012",
+    "licensePlate": "京M67890",
+    "vehicleType": "suv",
+    "color": "黑色",
+    "owner": "张十四",
+    "phone": "13700137003"
+  },
+  {
+    "id": "v013",
+    "licensePlate": "京N12345",
+    "vehicleType": "new-energy",
+    "color": "白色",
+    "owner": "刘十五",
+    "phone": "13800138004"
+  },
+  {
+    "id": "v014",
+    "licensePlate": "京P45678",
+    "vehicleType": "sedan",
+    "color": "银色",
+    "owner": "陈十六",
+    "phone": "13900139004"
+  },
+  {
+    "id": "v015",
+    "licensePlate": "京Q98765",
+    "vehicleType": "truck",
+    "color": "黑色",
+    "owner": "杨十七",
+    "phone": "13700137004"
+  },
+  {
+    "id": "v016",
+    "licensePlate": "京R54321",
+    "vehicleType": "suv",
+    "color": "蓝色",
+    "owner": "赵十八",
+    "phone": "13800138005"
+  },
+  {
+    "id": "v017",
+    "licensePlate": "京S87654",
+    "vehicleType": "new-energy",
+    "color": "绿色",
+    "owner": "钱十九",
+    "phone": "13900139005"
+  },
+  {
+    "id": "v018",
+    "licensePlate": "京T23456",
+    "vehicleType": "sedan",
+    "color": "白色",
+    "owner": "孙二十",
+    "phone": "13700137005"
+  },
+  {
+    "id": "v019",
+    "licensePlate": "津A12345",
+    "vehicleType": "suv",
+    "color": "红色",
+    "owner": "周二一",
+    "phone": "13800138006"
+  },
+  {
+    "id": "v020",
+    "licensePlate": "津B67890",
+    "vehicleType": "new-energy",
+    "color": "黑色",
+    "owner": "吴二二",
+    "phone": "13900139006"
+  },
+  {
+    "id": "v021",
+    "licensePlate": "津C13579",
+    "vehicleType": "sedan",
+    "color": "白色",
+    "owner": "郑二三",
+    "phone": "13700137006"
+  },
+  {
+    "id": "v022",
+    "licensePlate": "津D24680",
+    "vehicleType": "truck",
+    "color": "灰色",
+    "owner": "王二四",
+    "phone": "13800138007"
+  },
+  {
+    "id": "v023",
+    "licensePlate": "津E98765",
+    "vehicleType": "suv",
+    "color": "银色",
+    "owner": "李二五",
+    "phone": "13900139007"
+  },
+  {
+    "id": "v024",
+    "licensePlate": "津F45678",
+    "vehicleType": "new-energy",
+    "color": "蓝色",
+    "owner": "张二六",
+    "phone": "13700137007"
+  },
+  {
+    "id": "v025",
+    "licensePlate": "津G87654",
+    "vehicleType": "sedan",
+    "color": "黑色",
+    "owner": "刘二七",
+    "phone": "13800138008"
+  },
+  {
+    "id": "v026",
+    "licensePlate": "津H34567",
+    "vehicleType": "suv",
+    "color": "红色",
+    "owner": "陈二八",
+    "phone": "13900139008"
+  },
+  {
+    "id": "v027",
+    "licensePlate": "津J56789",
+    "vehicleType": "new-energy",
+    "color": "白色",
+    "owner": "杨二九",
+    "phone": "13700137008"
+  },
+  {
+    "id": "v028",
+    "licensePlate": "津K78901",
+    "vehicleType": "sedan",
+    "color": "蓝色",
+    "owner": "赵三十",
+    "phone": "13800138009"
+  },
+  {
+    "id": "v029",
+    "licensePlate": "津L23456",
+    "vehicleType": "truck",
+    "color": "绿色",
+    "owner": "钱三一",
+    "phone": "13900139009"
+  },
+  {
+    "id": "v030",
+    "licensePlate": "津M67890",
+    "vehicleType": "suv",
+    "color": "黑色",
+    "owner": "孙三二",
+    "phone": "13700137009"
+  }
+]
